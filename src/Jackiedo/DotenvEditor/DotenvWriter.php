@@ -1,4 +1,6 @@
-<?php namespace Jackiedo\DotenvEditor;
+<?php
+
+namespace Jackiedo\DotenvEditor;
 
 use Jackiedo\DotenvEditor\Contracts\DotenvFormatter as DotenvFormatterContract;
 use Jackiedo\DotenvEditor\Contracts\DotenvWriter as DotenvWriterContract;
@@ -7,29 +9,28 @@ use Jackiedo\DotenvEditor\Exceptions\UnableWriteToFileException;
 /**
  * The DotenvWriter writer.
  *
- * @package Jackiedo\DotenvEditor
  * @author Jackie Do <anhvudo@gmail.com>
  */
 class DotenvWriter implements DotenvWriterContract
 {
     /**
-     * The content buffer
+     * The content buffer.
      *
      * @var string
      */
     protected $buffer;
 
     /**
-     * The formatter instance
+     * The formatter instance.
      *
      * @var \Jackiedo\DotenvEditor\DotenvFormatter
      */
     protected $formatter;
 
     /**
-     * Create a new writer instance
+     * Create a new writer instance.
      *
-     * @param Jackiedo\DotenvEditor\Contracts\DotenvFormatter   $formatter
+     * @param Jackiedo\DotenvEditor\Contracts\DotenvFormatter $formatter
      */
     public function __construct(DotenvFormatterContract $formatter)
     {
@@ -41,31 +42,30 @@ class DotenvWriter implements DotenvWriterContract
      * the parent directory for writability so the file can be created.
      *
      * @throws \Jackiedo\DotenvEditor\Exceptions\UnableWriteToFileException
-     *
-     * @return void
      */
     protected function ensureFileIsWritable($filePath)
     {
         if ((is_file($filePath) && !is_writable($filePath)) || (!is_file($filePath) && !is_writable(dirname($filePath)))) {
-            throw new UnableWriteToFileException(sprintf('Unable to write to the file at %s.', $this->filePath));
+            throw new UnableWriteToFileException(sprintf('Unable to write to the file at %s.', $filePath));
         }
     }
 
     /**
-     * Set buffer with content
+     * Set buffer with content.
      *
-     * @param  string $content
+     * @param string $content
      *
      * @return DotenvWriter
      */
     public function setBuffer($content)
     {
         $this->buffer = $content;
+
         return $this;
     }
 
     /**
-     * Return content in buffer
+     * Return content in buffer.
      *
      * @return string
      */
@@ -75,20 +75,21 @@ class DotenvWriter implements DotenvWriterContract
     }
 
     /**
-     * Append new line to buffer
+     * Append new line to buffer.
      *
-     * @param  string|null  $text
+     * @param string|null $text
      *
      * @return DotenvWriter
      */
     protected function appendLine($text = null)
     {
-        $this->buffer .= $text . PHP_EOL;
+        $this->buffer .= $text.PHP_EOL;
+
         return $this;
     }
 
     /**
-     * Append empty line to buffer
+     * Append empty line to buffer.
      *
      * @return DotenvWriter
      */
@@ -98,9 +99,9 @@ class DotenvWriter implements DotenvWriterContract
     }
 
     /**
-     * Append comment line to buffer
+     * Append comment line to buffer.
      *
-     * @param  string $comment
+     * @param string $comment
      *
      * @return DotenvWriter
      */
@@ -110,12 +111,12 @@ class DotenvWriter implements DotenvWriterContract
     }
 
     /**
-     * Append one setter to buffer
+     * Append one setter to buffer.
      *
-     * @param  string       $key
-     * @param  string|null  $value
-     * @param  string|null  $comment
-     * @param  boolean      $export
+     * @param string      $key
+     * @param string|null $value
+     * @param string|null $comment
+     * @param bool        $export
      *
      * @return DotenvWriter
      */
@@ -127,12 +128,12 @@ class DotenvWriter implements DotenvWriterContract
     }
 
     /**
-     * Update one setter in buffer
+     * Update one setter in buffer.
      *
-     * @param  string       $key
-     * @param  string|null  $value
-     * @param  string|null  $comment
-     * @param  boolean      $export
+     * @param string      $key
+     * @param string|null $value
+     * @param string|null $comment
+     * @param bool        $export
      *
      * @return DotenvWriter
      */
@@ -146,9 +147,9 @@ class DotenvWriter implements DotenvWriterContract
     }
 
     /**
-     * Delete one setter in buffer
+     * Delete one setter in buffer.
      *
-     * @param  string $key
+     * @param string $key
      *
      * @return DotenvWriter
      */
@@ -161,9 +162,9 @@ class DotenvWriter implements DotenvWriterContract
     }
 
     /**
-     * Save buffer to special file path
+     * Save buffer to special file path.
      *
-     * @param  string $filePath
+     * @param string $filePath
      *
      * @return DotenvWriter
      */
