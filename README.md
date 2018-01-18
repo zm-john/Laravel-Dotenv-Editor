@@ -1,11 +1,5 @@
 # Laravel Dotenv Editor
-![laravel-dotenv-editor](https://cloud.githubusercontent.com/assets/9862115/25982836/029612b2-370a-11e7-82c5-d9146dc914a1.png)
-
-[![Latest Stable Version](https://poser.pugx.org/jackiedo/dotenv-editor/v/stable)](https://packagist.org/packages/jackiedo/dotenv-editor)
-[![Total Downloads](https://poser.pugx.org/jackiedo/dotenv-editor/downloads)](https://packagist.org/packages/jackiedo/dotenv-editor)
-[![Latest Unstable Version](https://poser.pugx.org/jackiedo/dotenv-editor/v/unstable)](https://packagist.org/packages/jackiedo/dotenv-editor)
-[![License](https://poser.pugx.org/jackiedo/dotenv-editor/license)](https://packagist.org/packages/jackiedo/dotenv-editor)
-
+[fork from [JackieDo/Laravel-Dotenv-Editor](https://github.com/JackieDo/Laravel-Dotenv-Editor)]
 Laravel Dotenv Editor is an the .env file editor (or files with same structure and syntax) for Laravel 5+. Now you can easily edit .env files with following features:
 
 * Read raw content of file
@@ -46,13 +40,13 @@ Currently, Laravel Dotenv Editor only have version 1.x that is compatible with L
 ## Installation
 You can install this package through [Composer](https://getcomposer.org).
 
-- First, edit your project's `composer.json` file to require `jackiedo/dotenv-editor`:
+- First, edit your project's `composer.json` file to require `quhang/dotenv-editor`:
 
 ```php
 ...
 "require": {
     ...
-    "jackiedo/dotenv-editor": "1.*"
+    "quhang/dotenv-editor": "1.*"
 },
 ```
 
@@ -62,7 +56,7 @@ You can install this package through [Composer](https://getcomposer.org).
 $ composer update
 ```
 
-> **Note:** Instead of performing the above two steps, you can perform faster with the command line `$ composer require jackiedo/dotenv-editor:1.*`.
+> **Note:** Instead of performing the above two steps, you can perform faster with the command line `$ composer require quhang/dotenv-editor:1.*`.
 
 - Once update operation completes, the third step is add the service provider. Open `config/app.php`, and add a new item to the providers array:
 

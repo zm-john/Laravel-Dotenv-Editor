@@ -120,49 +120,18 @@ class DotenvSetKeyCommand extends Command
      */
     protected function transferInputsToProperties()
     {
-        $filePath       = $this->stringToType($this->option('filepath'));
+        $filePath       = $this->option('filepath');
         $this->filePath = (is_string($filePath)) ? base_path($filePath) : null;
 
         $this->forceRestore = $this->option('restore');
 
-        $restorePath       = $this->stringToType($this->option('restore-path'));
+        $restorePath       = $this->option('restore-path');
         $this->restorePath = (is_string($restorePath)) ? base_path($restorePath) : null;
 
         $this->key       = $this->argument('key');
-        $this->value     = $this->stringToType($this->argument('value'));
-        $this->comment   = $this->stringToType($this->argument('comment'));
+        $this->value     = $this->argument('value');
+        $this->comment   = $this->argument('comment');
         $this->exportKey = $this->option('export-key');
-    }
-
-    /**
-     * Convert string to corresponding type
-     *
-     * @param  string $string
-     *
-     * @return mixed
-     */
-    protected function stringToType($string)
-    {
-        if (is_string($string)) {
-            switch (true) {
-                case ($string == 'null' || $string == 'NULL'):
-                    $string = null;
-                    break;
-
-                case ($string == 'true' || $string == 'TRUE'):
-                    $string = true;
-                    break;
-
-                case ($string == 'false' || $string == 'FALSE'):
-                    $string = false;
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        return $string;
     }
 
     /**
