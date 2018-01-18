@@ -1,5 +1,5 @@
 {
-    "name": "jackiedo/dotenv-editor",
+    "name": "quhang/dotenv-editor",
     "description": "The .env file editor tool for Laravel 5+",
     "license": "MIT",
     "keywords": ["laravel", "dotenv", "dotenv-editor"],
