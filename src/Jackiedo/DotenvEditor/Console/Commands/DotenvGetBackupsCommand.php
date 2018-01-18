@@ -1,6 +1,5 @@
 <?php  namespace Jackiedo\DotenvEditor\Console\Commands;
 
-use Illuminate\Console\Command;
 use Jackiedo\DotenvEditor\DotenvEditor;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
